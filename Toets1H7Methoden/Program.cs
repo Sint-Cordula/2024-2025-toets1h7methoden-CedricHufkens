@@ -1,4 +1,6 @@
-﻿namespace Toets1H7Methoden
+﻿using System.Net.NetworkInformation;
+
+namespace Toets1H7Methoden
 {
     internal class Program
     {
@@ -40,6 +42,30 @@
                 Console.WriteLine("Foutieve pincode. Toegang geweigerd.");
             }
 
+        }
+        public static int GetPincode(int aantalKarakters)
+        {
+            string pin=  "";
+            int tel = 0;
+            Random rand = new Random();
+            for (int i = 0; i < aantalKarakters; i++)
+            {
+                tel = rand.Next(0, 10);
+                pin += tel.ToString();
+                
+
+            }
+            int pin1 = Convert.ToInt32(pin);
+            return pin1;
+        }
+        public static bool Aanmelden(int pincode,int pincodeTest)
+        {
+            bool result= false;
+            if (pincode==pincodeTest)
+            {
+               result= true;
+            }
+            return result;
 
         }
 
